@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, monospace;
+
+  --color-amber-accent: #fbbf24;
+  --color-emerald-accent: #34d399;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+html {
+  scroll-behavior: smooth;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom fade-in on scroll animation styles */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glassmorphism overlays */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Code block / Terminal window elements */
+.terminal-bar {
+  background: rgba(30, 41, 59, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.light .terminal-bar {
+  background: rgba(226, 232, 240, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Smooth toggle transition */
+.theme-transition {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, fill 0.3s ease;
+}
+
+/* --- COMPREHENSIVE LIGHT MODE OVERRIDES --- */
+html.light body,
+html.light #portfolio-app-root {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+}
+
+html.light section {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6,
+html.light .text-white,
+html.light [id="hero-heading"] {
+  color: #0f172a !important;
+}
+
+html.light p,
+html.light li,
+html.light .text-slate-400,
+html.light .text-slate-300,
+html.light .text-slate-200 {
+  color: #475569 !important;
+}
+
+html.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Glass Panels & Cards */
+html.light .glass-panel,
+html.light div.bg-slate-900,
+html.light div.bg-slate-900\/40,
+html.light div.bg-slate-950,
+html.light div.bg-zinc-950,
+html.light div.bg-black,
+html.light [id="bento-experience-box"],
+html.light [id="bento-skills-filter-box"],
+html.light [id="bento-featured-box"],
+html.light [id="bento-stats-column"] {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04), 0 1px 4px rgba(15, 23, 42, 0.02) !important;
+}
+
+/* Border overrides */
+html.light .border-white\/10,
+html.light .border-slate-800,
+html.light .border-slate-900,
+html.light .border-slate-900\/60,
+html.light .border-white\/5 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Navbar */
+html.light header,
+html.light [id="navbar-root"] {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+html.light nav a,
+html.light [id="navbar-links"] a {
+  color: #334155 !important;
+}
+
+html.light nav a:hover,
+html.light [id="navbar-links"] a:hover {
+  color: #1e40af !important;
+}
+
+/* Input Fields & Forms */
+html.light input,
+html.light textarea,
+html.light select {
+  background-color: #ffffff !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  color: #0f172a !important;
+}
+
+html.light input:focus,
+html.light textarea:focus,
+html.light select:focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1) !important;
+}
+
+/* Custom buttons and tabs */
+html.light #admin-console-trigger-btn,
+html.light #theme-switcher-btn,
+html.light button.bg-slate-900 {
+  background-color: #f1f5f9 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #334155 !important;
+}
+
+html.light #admin-console-trigger-btn:hover,
+html.light #theme-switcher-btn:hover,
+html.light button.bg-slate-900:hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Tag badges */
+html.light span.bg-white\/5,
+html.light span.bg-slate-900,
+html.light .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #334155 !important;
+}
+
+/* Footer styling in light mode */
+html.light footer {
+  background-color: #f1f5f9 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+html.light footer p,
+html.light footer span {
+  color: #475569 !important;
+}
+

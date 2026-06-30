@@ -1,0 +1,6 @@
+{
+  "name": "Creative Portfolio Landing Page",
+  "description": "A modern, responsive, and interactive single-page developer portfolio website for Sadaf Ameer (@sadafbibi) featuring a Terminal-meets-Modern-Web aesthetic, a Bento grid layout, custom interactive terminal consoles, and a 2x2 projects grid with lightbox specifications.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
