@@ -53,8 +53,8 @@ export default function Footer({ config, activeVariant }: FooterProps) {
               {config.personalInfo.fullName}
             </span>
             <div className="flex items-center gap-1.5 text-[8px] font-mono text-slate-600">
-              <Cpu className="w-2.5 h-2.5 text-emerald-400 animate-pulse" />
-              <span>SADAFA_STATION_ONLINE</span>
+              <Cpu className="w-2.5 h-2.5 text-emerald-900 animate-pulse" />
+              <span>SADAF_STATION_ONLINE</span>
             </div>
           </div>
           

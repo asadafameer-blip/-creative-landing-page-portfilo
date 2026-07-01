@@ -359,7 +359,7 @@ export default function AdminPanel({
                         <p className="font-mono text-[9px] text-slate-500 uppercase">TOTAL_PROJECTS_ACTIVE</p>
                         <h4 className="font-sans text-xl font-black text-white mt-1">{config.projects.length}</h4>
                       </div>
-                      <Database className="w-5 h-5 text-amber-400" />
+                      <Database className="w-5 h-5 text-amber-900" />
                     </div>
 
                     <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-850 flex items-center justify-between">

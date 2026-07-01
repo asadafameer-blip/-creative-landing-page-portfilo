@@ -199,8 +199,8 @@ export default function BentoSkills({ config, activeVariant }: BentoSkillsProps)
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-900 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-900"></span>
                   </span>
                   <span className="font-mono text-[8px] md:text-[9px] text-slate-400">LIVE</span>
                 </div>

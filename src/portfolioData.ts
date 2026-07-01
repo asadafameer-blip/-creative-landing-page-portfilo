@@ -29,7 +29,7 @@ export const initialPortfolioConfig: PortfolioConfig = {
   accentColor: "blue", // Default customized button color
   personalInfo: {
     fullName: "Sadaf Ameer",
-    username: "@sadafbibi",
+    username: "@sadafameer",
     bio: "Passionate Full-Stack Web Developer specializing in Next.js, Express.js, MongoDB, and robust API Architectures. I design high-performance, responsive web applications with a focus on seamless backend integrations and pixel-perfect dark/light user interfaces.",
     roles: [
       "Next.js Developer",

@@ -253,9 +253,9 @@ export default function Hero({ config, activeVariant }: HeroProps) {
             {/* Terminal Window Header controls */}
             <div className="flex items-center justify-between px-3 md:px-4 py-2 md:py-3 bg-slate-900 border-b border-white/10">
               <div className="flex items-center gap-1.5">
-                <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-500/80" />
-                <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-amber-500/80" />
-                <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-emerald-500/80" />
+                <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-red-800/80" />
+                <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-amber-900/80" />
+                <div className="w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-emerald-900/80" />
               </div>
               <div className="font-mono text-[7px] md:text-[9px] text-slate-500 flex items-center gap-1.5">
                 <TerminalSquare className="w-3 h-3 md:w-3.5 md:h-3.5" />

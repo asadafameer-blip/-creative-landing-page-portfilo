@@ -21,7 +21,7 @@ export default function ContactForm({ config, activeVariant }: ContactFormProps)
   const [form, setForm] = useState<MessageSubmission>({
     name: "",
     email: "",
-    subject: "MERN Stack Project",
+    subject: "full Stack Project",
     message: ""
   });
 
@@ -78,7 +78,7 @@ export default function ContactForm({ config, activeVariant }: ContactFormProps)
   };
 
   const resetForm = () => {
-    setForm({ name: "", email: "", subject: "MERN Stack Project", message: "" });
+    setForm({ name: "", email: "", subject: "full Stack Project", message: "" });
     setIsSubmitted(false);
     setTerminalLogs([]);
   };
@@ -299,12 +299,12 @@ export default function ContactForm({ config, activeVariant }: ContactFormProps)
                     <div className="flex items-center gap-2">
                       <MessageCircle className="w-4 h-4 text-emerald-400" />
                       <a 
-                        href="https://wa.me/92295806515" 
+                        href="https://wa.me/923295806515" 
                         className="text-slate-300 hover:text-white font-mono text-xs transition-colors"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        +92 295 806515
+                        +92 329 5806515
                       </a>
                     </div>
                   </div>
