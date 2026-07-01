@@ -229,10 +229,10 @@ export default function AdminPanel({
         id="admin-panel-modal"
       >
         {/* Terminal Header */}
-        <div className="flex items-center justify-between px-6 py-4 bg-slate-950 border-b border-slate-800 font-mono text-xs text-slate-400">
+        <div className="flex items-center justify-between px-4 md:px-6 py-4 bg-slate-950 border-b border-slate-800 font-mono text-xs text-slate-400">
           <div className="flex items-center gap-2">
             <Cpu className={`w-5 h-5 ${getAccentTextColor(accent)} animate-pulse`} />
-            <span className="font-extrabold tracking-widest text-white uppercase">SYSTEM_ADMIN_PORTAL_v2.0</span>
+            <span className="font-extrabold tracking-widest text-white uppercase text-sm md:text-base">SYSTEM_ADMIN_PORTAL_v2.0</span>
           </div>
           <button
             onClick={onClose}
@@ -240,7 +240,8 @@ export default function AdminPanel({
             id="close-admin-btn"
           >
             <X className="w-4 h-4" />
-            CLOSE TERMINAL
+            <span className="hidden sm:inline">CLOSE TERMINAL</span>
+            <span className="sm:hidden">CLOSE</span>
           </button>
         </div>
 
@@ -258,7 +259,7 @@ export default function AdminPanel({
                 onClick={() => { setActiveTab("overview"); setIsAddingProject(false); setEditingProject(null); }}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${
                   activeTab === "overview" 
-                    ? `bg-slate-900 text-white border-l-2 border-${accent}-400` 
+                    ? `bg-slate-900 text-white border-l-2 ${getAccentBorderColor(accent)}` 
                     : "text-slate-400 hover:text-white hover:bg-slate-900/50"
                 }`}
               >
@@ -271,7 +272,7 @@ export default function AdminPanel({
                 onClick={() => setActiveTab("projects")}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${
                   activeTab === "projects" 
-                    ? `bg-slate-900 text-white border-l-2 border-${accent}-400` 
+                    ? `bg-slate-900 text-white border-l-2 ${getAccentBorderColor(accent)}` 
                     : "text-slate-400 hover:text-white hover:bg-slate-900/50"
                 }`}
               >
@@ -284,7 +285,7 @@ export default function AdminPanel({
                 onClick={() => { setActiveTab("styles"); setIsAddingProject(false); setEditingProject(null); }}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${
                   activeTab === "styles" 
-                    ? `bg-slate-900 text-white border-l-2 border-${accent}-400` 
+                    ? `bg-slate-900 text-white border-l-2 ${getAccentBorderColor(accent)}` 
                     : "text-slate-400 hover:text-white hover:bg-slate-900/50"
                 }`}
               >
@@ -297,7 +298,7 @@ export default function AdminPanel({
                 onClick={() => { setActiveTab("skills"); setIsAddingProject(false); setEditingProject(null); }}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all ${
                   activeTab === "skills" 
-                    ? `bg-slate-900 text-white border-l-2 border-${accent}-400` 
+                    ? `bg-slate-900 text-white border-l-2 ${getAccentBorderColor(accent)}` 
                     : "text-slate-400 hover:text-white hover:bg-slate-900/50"
                 }`}
               >
@@ -309,19 +310,19 @@ export default function AdminPanel({
             {/* Admin Profile indicator */}
             <div className="border-t border-slate-900 pt-4 p-2 hidden md:block">
               <div className="flex items-center gap-3">
-                <div className={`w-8 h-8 rounded-full bg-${accent}-400/10 border border-${accent}-400/20 flex items-center justify-center`}>
+                <div className={`w-8 h-8 rounded-full ${getAccentBgColor(accent)}/10 border ${getAccentBorderColor(accent)}/20 flex items-center justify-center`}>
                   <User className={`w-4 h-4 ${getAccentTextColor(accent)}`} />
                 </div>
                 <div className="font-mono text-[10px]">
                   <p className="text-white font-bold leading-none">Admin Mode</p>
-                  <p className="text-emerald-400 font-semibold mt-1">Sadaf Ameer</p>
+                  <p className={`${getAccentTextColor(accent)} font-semibold mt-1`}>Sadaf Ameer</p>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Content Space */}
-          <div className="flex-1 overflow-y-auto p-6 bg-slate-900" id="admin-main-stage">
+          <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-slate-900" id="admin-main-stage">
             
             <AnimatePresence mode="wait">
               
@@ -334,12 +335,12 @@ export default function AdminPanel({
                   className="space-y-6"
                   key="overview-pane"
                 >
-                  <div className="flex justify-between items-center pb-4 border-b border-slate-800">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4 border-b border-slate-800 gap-2">
                     <div>
                       <h3 className="font-sans text-xl md:text-2xl font-bold text-white">System Logs Overview</h3>
                       <p className="text-slate-400 text-xs mt-1">Read visitor entries, telemetry signals, and server metrics.</p>
                     </div>
-                    <span className="text-xs font-mono px-3 py-1 bg-emerald-400/10 border border-emerald-400/20 text-emerald-400 rounded-md">
+                    <span className={`text-xs font-mono px-3 py-1 ${getAccentBgColor(accent)}/10 border ${getAccentBorderColor(accent)}/20 ${getAccentTextColor(accent)} rounded-md`}>
                       ONLINE // PORT_3000
                     </span>
                   </div>
@@ -381,9 +382,9 @@ export default function AdminPanel({
 
                   {/* Dynamic Messages Box */}
                   <div className="rounded-xl border border-slate-850 bg-slate-950/40 p-4 space-y-4">
-                    <h4 className="font-mono text-[10px] text-slate-400 uppercase tracking-wider border-b border-slate-850 pb-2 flex items-center justify-between">
+                    <h4 className="font-mono text-[10px] text-slate-400 uppercase tracking-wider border-b border-slate-850 pb-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                       <span>OUTBOUND_TELEMETRY_SHELL_INCOMING (Contact Form Submissions)</span>
-                      <span className="text-emerald-400 text-[9px]">STORAGE: LOCAL_PRESERVATION</span>
+                      <span className={`${getAccentTextColor(accent)} text-[9px]`}>STORAGE: LOCAL_PRESERVATION</span>
                     </h4>
 
                     {messages.length === 0 ? (
@@ -397,8 +398,8 @@ export default function AdminPanel({
                         {messages.map((msg, index) => (
                           <div key={index} className="p-4 rounded-xl bg-slate-950 border border-slate-900 flex flex-col md:flex-row md:items-center justify-between gap-4 font-mono text-xs text-slate-300">
                             <div className="space-y-1.5 max-w-xl">
-                              <div className="flex items-center gap-2">
-                                <span className={`text-[10px] px-2 py-0.5 rounded bg-${accent}-400/10 border border-${accent}-400/20 text-white font-bold`}>
+                              <div className="flex flex-wrap items-center gap-2">
+                                <span className={`text-[10px] px-2 py-0.5 rounded ${getAccentBgColor(accent)}/10 border ${getAccentBorderColor(accent)}/20 text-white font-bold`}>
                                   {msg.subject || "PROJECT_SPECTRUM"}
                                 </span>
                                 <span className="text-[11px] text-white font-extrabold">{msg.name}</span>
@@ -619,7 +620,7 @@ export default function AdminPanel({
                       </div>
 
                       {/* Triggers */}
-                      <div className="flex gap-3 justify-end pt-4 border-t border-slate-850">
+                      <div className="flex flex-wrap gap-3 justify-end pt-4 border-t border-slate-850">
                         <button
                           type="button"
                           onClick={() => { setIsAddingProject(false); setEditingProject(null); }}
@@ -639,29 +640,29 @@ export default function AdminPanel({
                     /* Project table grid lists */
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {config.projects.map((project) => (
-                        <div key={project.id} className="p-4 rounded-xl bg-slate-950 border border-slate-850 flex items-start gap-4 justify-between group">
-                          <div className="flex items-center gap-3.5">
+                        <div key={project.id} className="p-4 rounded-xl bg-slate-950 border border-slate-850 flex flex-col sm:flex-row items-start gap-4 justify-between group">
+                          <div className="flex items-center gap-3.5 w-full sm:w-auto">
                             <img
                               src={project.image}
                               alt={project.title}
-                              className="w-16 h-12 object-cover rounded-lg border border-slate-800"
+                              className="w-16 h-12 object-cover rounded-lg border border-slate-800 flex-shrink-0"
                             />
-                            <div>
-                              <span className="font-mono text-[9px] text-slate-500 tracking-wider block uppercase">{project.category}</span>
-                              <h4 className="font-sans text-sm font-extrabold text-white">{project.title}</h4>
+                            <div className="min-w-0 flex-1">
+                              <span className="font-mono text-[9px] text-slate-500 tracking-wider block uppercase truncate">{project.category}</span>
+                              <h4 className="font-sans text-sm font-extrabold text-white truncate">{project.title}</h4>
                               <a 
                                 href={project.demoUrl} 
                                 target="_blank" 
                                 rel="noreferrer" 
-                                className="font-mono text-[10px] text-emerald-400 flex items-center gap-1 hover:underline mt-1"
+                                className={`font-mono text-[10px] ${getAccentTextColor(accent)} flex items-center gap-1 hover:underline mt-1 truncate`}
                               >
                                 {project.demoUrl.slice(0, 30)}...
-                                <ExternalLink className="w-2.5 h-2.5" />
+                                <ExternalLink className="w-2.5 h-2.5 flex-shrink-0" />
                               </a>
                             </div>
                           </div>
 
-                          <div className="flex items-center gap-2 opacity-80 group-hover:opacity-100 transition-all">
+                          <div className="flex items-center gap-2 opacity-80 group-hover:opacity-100 transition-all self-end sm:self-center mt-2 sm:mt-0">
                             <button
                               onClick={() => handleStartEdit(project)}
                               className="p-1.5 hover:bg-slate-900 border border-transparent hover:border-slate-800 text-slate-400 hover:text-white rounded-lg transition-all"
@@ -699,29 +700,33 @@ export default function AdminPanel({
                   </div>
 
                   {/* Button Palette Options */}
-                  <div className="p-6 rounded-2xl bg-slate-950 border border-slate-850 space-y-4">
+                  <div className="p-4 md:p-6 rounded-2xl bg-slate-950 border border-slate-850 space-y-4">
                     <h4 className="font-mono text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                      <Palette className="w-4 h-4 text-amber-400" />
+                      <Palette className={`w-4 h-4 ${getAccentTextColor(accent)}`} />
                       BUTTON ACCENT COLOR PALETTE ("es ka button ka color change kr do")
                     </h4>
                     <p className="text-slate-400 font-light text-xs max-w-xl leading-relaxed">
                       Choose your favorite core visual anchor. This instantly changes all buttons, checkboxes, glowing gradients, and visual anchors across the entire portfolio:
                     </p>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                    {/* RESPONSIVE GRID FIX: mobile 1, sm 2, md 4 */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-2">
                       {colorOptions.map((opt) => {
                         const isSelected = accent === opt.value;
+                        // Manually map color classes for selected state
+                        const borderColor = isSelected ? `border-${opt.value}-500` : 'border-slate-800';
+                        const bgColor = isSelected ? `bg-${opt.value}-500` : 'bg-slate-700';
                         return (
                           <button
                             key={opt.value}
                             onClick={() => handleAccentChange(opt.value)}
                             className={`p-3.5 rounded-xl border font-mono text-xs font-bold flex flex-col items-center justify-center gap-2 transition-all relative ${
                               isSelected 
-                                ? `border-${opt.value}-500 bg-slate-900 shadow-md scale-[1.03]` 
-                                : "border-slate-850 bg-slate-950 hover:bg-slate-900"
+                                ? `${borderColor} bg-slate-900 shadow-md scale-[1.03]` 
+                                : "border-slate-800 bg-slate-950 hover:bg-slate-900"
                             }`}
                           >
-                            <span className={`w-5 h-5 rounded-full bg-${opt.value}-500 block shadow-[0_0_10px_rgba(16,185,129,0.3)]`} />
+                            <span className={`w-5 h-5 rounded-full ${bgColor} block shadow-[0_0_10px_rgba(16,185,129,0.3)]`} />
                             <span className={isSelected ? `text-white` : "text-slate-400"}>
                               {opt.name.toUpperCase()}
                             </span>
@@ -735,16 +740,17 @@ export default function AdminPanel({
                   </div>
 
                   {/* Structural Variants */}
-                  <div className="p-6 rounded-2xl bg-slate-950 border border-slate-850 space-y-4">
+                  <div className="p-4 md:p-6 rounded-2xl bg-slate-950 border border-slate-850 space-y-4">
                     <h4 className="font-mono text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                      <Layers className="w-4 h-4 text-emerald-400" />
+                      <Layers className={`w-4 h-4 ${getAccentTextColor(accent)}`} />
                       STRUCTURAL ARCHITECTURE LAYOUTS
                     </h4>
                     <p className="text-slate-400 font-light text-xs max-w-xl leading-relaxed">
                       Select a structural visual theme preset. This updates background colors and core spacing:
                     </p>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                    {/* RESPONSIVE GRID FIX: mobile 1, sm 2, md 4 */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 pt-2">
                       {[
                         { id: "DevPro", desc: "Cybernetic High Contrast" },
                         { id: "Aceternity", desc: "Ethereal Neon Canvas" },
@@ -759,7 +765,7 @@ export default function AdminPanel({
                             className={`p-4 rounded-xl border text-center transition-all flex flex-col justify-between h-28 relative ${
                               isSelected 
                                 ? `border-slate-100 bg-slate-900 scale-[1.03] shadow-lg` 
-                                : "border-slate-850 bg-slate-950 hover:bg-slate-900"
+                                : "border-slate-800 bg-slate-950 hover:bg-slate-900"
                             }`}
                           >
                             <span className="font-mono text-xs font-bold text-white block">
@@ -769,7 +775,7 @@ export default function AdminPanel({
                               {variant.desc}
                             </span>
                             {isSelected && (
-                              <span className={`absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-${accent}-400`} />
+                              <span className={`absolute top-2 right-2 w-1.5 h-1.5 rounded-full ${getAccentBgColor(accent)}`} />
                             )}
                           </button>
                         );
@@ -795,7 +801,7 @@ export default function AdminPanel({
                   </div>
 
                   {/* Add skill form */}
-                  <form onSubmit={handleAddSkill} className="p-5 rounded-2xl bg-slate-950 border border-slate-850 grid grid-cols-1 md:grid-cols-4 gap-4 items-end font-mono text-xs">
+                  <form onSubmit={handleAddSkill} className="p-4 md:p-5 rounded-2xl bg-slate-950 border border-slate-850 grid grid-cols-1 md:grid-cols-4 gap-4 items-end font-mono text-xs">
                     <div>
                       <label className="block text-slate-500 mb-2">SKILL_NAME</label>
                       <input
@@ -858,7 +864,7 @@ export default function AdminPanel({
                               <div key={skill.name} className="flex justify-between items-center p-2.5 bg-slate-950 border border-slate-900 rounded-lg text-xs font-mono text-slate-300">
                                 <div>
                                   <span className="text-white font-bold block">{skill.name}</span>
-                                  <span className={`text-[9px] text-emerald-400 font-semibold`}>{skill.level.toUpperCase()}</span>
+                                  <span className={`text-[9px] ${getAccentTextColor(accent)} font-semibold`}>{skill.level.toUpperCase()}</span>
                                 </div>
                                 <button
                                   onClick={() => handleRemoveSkill(skill.name)}
@@ -883,9 +889,9 @@ export default function AdminPanel({
         </div>
 
         {/* Footer verification system stamp */}
-        <div className="px-6 py-3.5 bg-slate-950 text-[10px] font-mono text-slate-500 border-t border-slate-800 flex justify-between items-center">
+        <div className="px-4 md:px-6 py-3.5 bg-slate-950 text-[10px] font-mono text-slate-500 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
           <span className="flex items-center gap-1.5">
-            <CheckCircle className="w-4 h-4 text-emerald-400" />
+            <CheckCircle className={`w-4 h-4 ${getAccentTextColor(accent)}`} />
             ADMIN ENCRYPTION SECURE: DIRECT WORKSPACE PORT_3000 PERSISTENCE OK
           </span>
           <span>ADMIN_TERMINAL_v2.0_SYS_STAMP</span>
